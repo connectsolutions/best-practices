@@ -1,6 +1,6 @@
 # Javascript Coding Standards
 
-## This is a living document and new ideas for improving the code around us are always welcome.
+- This is a living document and new ideas for improving the code around us are always welcome.
 
 ## All code in any code-base should look like a single person typed it, no matter how many people contributed.
 
@@ -8,6 +8,7 @@
  * [JavaScript Files](#jsfiles)
  * [Whitespace](#whitespace)
  * [Beautiful Syntax](#spacing)
+ * [Variable and function names](#naming)
  * [Build & Test Tools](#tools)
 
 ## Coso Style Manifesto
@@ -19,13 +20,54 @@
 
 	- JavaScript code should not be embedded in HTML files unless the code is specific to a single session. Code in HTML adds significantly to pageweight with no opportunity for mitigation by caching and compression.
 
-
 2. <a name="whitespace">Whitespace</a>
 	- Indention - We use soft indents (spaces) size of two.
 		- Never mix spaces and tabs.
 
 	- Remove all end of line white space.
 
+	- Add spaces and line breaks when/where readability gets compromised otherwise.
+
+	```code
+	'use strict';
+
+	module.exports = function(PackageService, SettingService) {
+
+	    return (require('./../classes/Controller.js')).extend(
+	        {
+	            service: PackageService
+	        },
+	        {
+	            // Get 3 most popular packages
+	            popularAction: function() {
+	                PackageService.find({
+	                        limit: 3,
+	                        order: 'views DESC'
+	                    })
+	                    .then(this.proxy('send'))
+	                    .fail(this.proxy('handleException'));
+	            },
+	            // Create a package
+	            postAction: function() {
+	                var data = this.req.body;
+
+	                if (data.id) {
+	                    return this.putAction();
+	                }
+
+	                PackageService
+	                    .create(data)
+	                    .then(this.proxy('send'))
+	                    .fail(this.proxy('handleException'));
+	            },
+	            // Update a package
+	            putAction: function() {
+	                this.send(403, 'Updates are not allowed');
+	            }
+	        }
+	    );
+	};
+	```
 
 3. <a name="spacing">Beautiful Syntax</a>
 
@@ -62,8 +104,71 @@
 	}
 	```
 
+	- Blocks
 
-4. <a name="tools">Build & Test Tools</a>
+	When you're writing blocks (or array items), you start them on the same line.
+
+	```code
+	define([
+	        'app',
+	        'highlightjs'
+	    ],
+	    function( app, hljs ) {
+	        'use strict';
+
+	        app.controller( 'Home', [
+	            '$scope',
+	            ...
+	            function( $scope, ... ) {
+
+	                // Init $scope properties
+	                // $scope helpers
+	                $scope.helpers = {
+	                    ...
+	                };
+	            }
+	        ]
+	    }
+	);
+	```
+
+4. <a name="naming">Variable and function names</a>
+
+	- Naming size
+
+	We don't write variable or function names that are too big, but we don't like having very short names as well.
+
+	The variable and function names are also somewhat descriptive of what they're doing. They don't require a lot of thinking about what they are.
+
+	Example:
+	```code
+	module.exports = function( Service ) {
+
+	    return ( require('./../classes/Controller.js') ).extend(
+	        {
+	            service: Service,
+	        },
+	        {
+	            groupedAction: function() {
+	                Service.getSettingsGroups()
+	                    .then( this.proxy( 'send' ) )
+	                    .fail( this.proxy( 'handleEx' ) );
+	            },
+
+	            postAction: function() {
+	                var tmpId = 0,
+	                    settingObject = this.req.body;
+
+	                ...
+	            }
+	        });
+	};
+	```
+
+	- Variable and function names are in camelCase.
+
+
+5. <a name="tools">Build & Test Tools</a>
 
 	All JavaScript files must pass the jshint rules provided by the build process.  The build process is automated with Grunt. Therefore the files should pass the following command:
 
