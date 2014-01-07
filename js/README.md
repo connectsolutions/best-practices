@@ -1,32 +1,30 @@
-Javascript Coding Standards
-===========================
+# Javascript Coding Standards
 
-# CoSo Coding Style Manifesto
+## CoSo Style Manifesto
 All code in any code-base should look like a single person typed it, no matter how many people contributed.
 
 # Table of Contents
-* JavaScript Files
-* Whitespace
-* Beatiful Syntax
+* [JavaScript Files](#jsfiles)
+* [Whitespace](#whitespace)
+* [Beautiful Syntax](#spacing)
 * Build & Test Tools
 
-# JavaScript Files
-JavaScript programs should be stored in and delivered as .js files.
+1. <a name="jsfiles">JavaScript Files</a>
+	- JavaScript programs should be stored in and delivered as .js files.
 
-JavaScript files should be named all lower case with a dash as word seperator if needed.
+	- JavaScript files should be named all lower case with a dash as word seperator if needed.
 
-JavaScript code should not be embedded in HTML files unless the code is specific to a single session. Code in HTML adds significantly to pageweight with no opportunity for mitigation by caching and compression.
+	- JavaScript code should not be embedded in HTML files unless the code is specific to a single session. Code in HTML adds significantly to pageweight with no opportunity for mitigation by caching and compression.
 
-# Whitespace
+2. <a name="whitespace">Whitespace</a>
+	- Indention - We use soft indents (spaces) size of two.
+		- Never mix spaces and tabs.
 
-* Indention
-We use soft indents (spaces) size of two.
+	- Remove all end of line white space.
 
-Remove all end of line white space.
+3. <a name="spacing">Beautiful Syntax</a>
 
-# Beatiful Syntax
-
-* Use of Var
+- Use of Var
 Multiple var statements for each declaration followed by a semi-collon with a comment describing usage.
 ```code
 var foo = 'Hello';
