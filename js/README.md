@@ -2,7 +2,9 @@
 
 This is a living document and new ideas for improving the code around us are always welcome.
 
-## All code in any code-base should look like a single person typed it, no matter how many people contributed.
+# Manifesto
+
+### All code in any code-base should look like a single person typed it, no matter how many people contributed.
 
 ## Table of Contents
  * [JavaScript Files](#jsfiles)
@@ -11,7 +13,7 @@ This is a living document and new ideas for improving the code around us are alw
  * [Variable and function names](#naming)
  * [Build & Test Tools](#tools)
 
-## Coso Style Manifesto
+## Style Guide
 
 1. <a name="jsfiles">JavaScript Files</a>
 	- JavaScript programs should be stored in and delivered as .js files.
