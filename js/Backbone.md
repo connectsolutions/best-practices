@@ -7,6 +7,8 @@ This is a living document and new ideas for improving the code around us are alw
  * [Views](#views)
  * [Models & Collections](#models)
 
+ ## Rules to live by
+
 1. <a name="philosophy">Philosophy</a>
 
 	- Views should be responsible for display, input, updating the model and coordinating the creation of other views.
