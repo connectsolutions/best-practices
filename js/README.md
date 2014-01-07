@@ -1,6 +1,6 @@
 # Javascript Coding Standards
 
-- This is a living document and new ideas for improving the code around us are always welcome.
+This is a living document and new ideas for improving the code around us are always welcome.
 
 ## All code in any code-base should look like a single person typed it, no matter how many people contributed.
 
