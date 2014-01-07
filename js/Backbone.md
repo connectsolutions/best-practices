@@ -7,7 +7,7 @@ This is a living document and new ideas for improving the code around us are alw
  * [Views](#views)
  * [Models & Collections](#models)
 
-## <a name="philosophy">Philosophy</a>
+1. <a name="philosophy">Philosophy</a>
 
 	- Views should be responsible for display, input, updating the model and coordinating the creation of other views.
 
@@ -17,7 +17,7 @@ This is a living document and new ideas for improving the code around us are alw
 
 	- There should be a single App module extended from view that is responsible for initial application bootstraping, creating all the routers and manage the application page structure (header, body, footer).
 
-## <a href="views">Views</a>
+2. <a href="views">Views</a>
 
 	- Views should never create models / collections.  They should be passed in as options when the view is created.  The options used to pass in the collection / model shouldn't be the standard model / collection used by Backbone.  When the view is initialized it should set the this.model or this.collection based on the options parameters that are passed in.  See Example Below:
 
@@ -47,7 +47,7 @@ This is a living document and new ideas for improving the code around us are alw
 
 	When views create sub views they must make sure they call remove on each sub view before they are removed.  This is usually handled by overriding Backbone remove and calling remove on all the sub views before calling the super class remove.
 
-## <a href="models">Models & Collections</a>
+3. <a href="models">Models & Collections</a>
 
 	- Models & Collections should be rigorous about maintaining state locally and sync with the server only when necessary.  This would include things like adding and removing from a collection should happen locally without a round trip to the server.  This also would include pagination, searching and sorting to occur client side as much as possible.
 

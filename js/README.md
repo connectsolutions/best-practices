@@ -15,14 +15,14 @@ This is a living document and new ideas for improving the code around us are alw
 
 ## Style Guide
 
-### <a name="jsfiles">JavaScript Files</a>
+1. <a name="jsfiles">JavaScript Files</a>
 	- JavaScript programs should be stored in and delivered as .js files.
 
 	- JavaScript files should be named all lower case with a dash as word seperator if needed.
 
 	- JavaScript code should not be embedded in HTML files unless the code is specific to a single session. Code in HTML adds significantly to pageweight with no opportunity for mitigation by caching and compression.
 
-### <a name="whitespace">Whitespace</a>
+2. <a name="whitespace">Whitespace</a>
 	- Indention - We use soft indents (spaces) size of two.
 		- Never mix spaces and tabs.
 
@@ -71,7 +71,7 @@ This is a living document and new ideas for improving the code around us are alw
 	};
 	```
 
-### <a name="spacing">Beautiful Syntax</a>
+3. <a name="spacing">Beautiful Syntax</a>
 
 	- Use of Var
 
@@ -134,7 +134,7 @@ This is a living document and new ideas for improving the code around us are alw
 	);
 	```
 
-### <a name="naming">Variable and function names</a>
+4. <a name="naming">Variable and function names</a>
 
 	- Naming size
 
@@ -170,7 +170,7 @@ This is a living document and new ideas for improving the code around us are alw
 	- Variable and function names are in camelCase.
 
 
-### <a name="tools">Build & Test Tools</a>
+5. <a name="tools">Build & Test Tools</a>
 
 	All JavaScript files must pass the jshint rules provided by the build process.  The build process is automated with Grunt. Therefore the files should pass the following command:
 
