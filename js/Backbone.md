@@ -102,7 +102,7 @@ This is much better:
 	var view = new MyView({users: users});
 	```
 
-	- A views render method should be as simple as possible and able to be called multiple times without performance impact, memory leaks or adversely effecting the DOM.
+	- A views render method should be as simple as possible and able to be called multiple times without performance impact, memory leaks or adversely affecting the DOM.
 
 	- Views should fetch data on the model / collection in seperate load method after setting up the necessary event handlers needed to render the page when the fetch is completed.  Render should not fetch data.  Callbacks should not be used when calling the fetch to render the page.  The render should be wired to a model / collection event handler.
 
