@@ -54,6 +54,9 @@ attributes) whenever possible in the response. Always provide the full
 resource on 200 and 201 responses, including `PUT`/`PATCH` and `DELETE`
 requests, e.g.:
 
+NOTE: There seems to be some disagreement over whether it's appropriate to return the resource after a `DELETE`. We are not presently doing so, and things seem to be working fine. -- Tom Cannon
+
+
 ```
 $ curl -X DELETE \  
   https://service.com/apps/1f9b/domains/0fd4
