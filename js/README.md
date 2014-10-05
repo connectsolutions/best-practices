@@ -4,13 +4,14 @@ This is a living document and new ideas for improving the code around us are alw
 
 # Manifesto
 
-### All code in any code-base should look like a single person typed it, no matter how many people contributed.
+All code in any code-base should look like a single person typed it, no matter how many people contributed.
 
 ## Table of Contents
  * [JavaScript Files](#jsfiles)
  * [Whitespace](#whitespace)
  * [Beautiful Syntax](#spacing)
  * [Variable and function names](#naming)
+ * [Variable hoisting](#hoisting)
  * [Build & Test Tools](#tools)
 
 ## Style Guide
@@ -22,7 +23,7 @@ This is a living document and new ideas for improving the code around us are alw
 
 	- JavaScript code should not be embedded in HTML files unless the code is specific to a single session. Code in HTML adds significantly to pageweight with no opportunity for mitigation by caching and compression.
 
-2. <a name="whitespace">Whitespace</a>
+1. <a name="whitespace">Whitespace</a>
 	- Indention - We use soft indents (spaces) size of two.
 		- Never mix spaces and tabs.
 
@@ -71,7 +72,7 @@ This is a living document and new ideas for improving the code around us are alw
 	};
 	```
 
-3. <a name="spacing">Beautiful Syntax</a>
+1. <a name="spacing">Beautiful Syntax</a>
 
 	- Use of Var
 
@@ -134,7 +135,7 @@ This is a living document and new ideas for improving the code around us are alw
 	);
 	```
 
-4. <a name="naming">Variable and function names</a>
+1. <a name="naming">Variable and function names</a>
 
 	- Naming size
 
@@ -169,8 +170,13 @@ This is a living document and new ideas for improving the code around us are alw
 
 	- Variable and function names are in camelCase.
 
+1. <a name="jsfiles">Variable hoisting</a>
 
-5. <a name="tools">Build & Test Tools</a>
+  Always declare variables at the top of their scope (the top of global code and the top of function code) so it's clear which variables are function scoped (local) and which are resolved on the scope chain.
+
+  A description of variable hoisting can be found <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting">here</a>
+
+1. <a name="tools">Build & Test Tools</a>
 
 	All JavaScript files must pass the jshint rules provided by the build process.  The build process is automated with Grunt. Therefore the files should pass the following command:
 
