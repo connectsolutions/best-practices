@@ -18,17 +18,13 @@ All code in any code-base should look like a single person typed it, no matter h
 
 1. <a name="jsfiles">JavaScript Files</a>
 	- JavaScript programs should be stored in and delivered as .js files.
-
 	- JavaScript files should be named all lower case with a dash as word seperator if needed.
-
 	- JavaScript code should not be embedded in HTML files unless the code is specific to a single session. Code in HTML adds significantly to pageweight with no opportunity for mitigation by caching and compression.
 
 1. <a name="whitespace">Whitespace</a>
 	- Indention - We use soft indents (spaces) size of two.
 		- Never mix spaces and tabs.
-
 	- Remove all end of line white space.
-
 	- Add spaces and line breaks when/where readability gets compromised otherwise.
 
 	```code
