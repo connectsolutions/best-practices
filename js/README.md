@@ -36,39 +36,39 @@ All code in any code-base should look like a single person typed it, no matter h
 
 	module.exports = function(PackageService, SettingService) {
 
-	    return (require('./../classes/Controller.js')).extend(
-	        {
-	            service: PackageService
-	        },
-	        {
-	            // Get 3 most popular packages
-	            popularAction: function() {
-	                PackageService.find({
-	                        limit: 3,
-	                        order: 'views DESC'
-	                    })
-	                    .then(this.proxy('send'))
-	                    .fail(this.proxy('handleException'));
-	            },
-	            // Create a package
-	            postAction: function() {
-	                var data = this.req.body;
+    return (require('./../classes/Controller.js')).extend(
+      {
+        service: PackageService
+      },
+      {
+        // Get 3 most popular packages
+        popularAction: function() {
+          PackageService.find({
+            limit: 3,
+            order: 'views DESC'
+          })
+          .then(this.proxy('send'))
+          .fail(this.proxy('handleException'));
+        },
+        // Create a package
+        postAction: function() {
+          var data = this.req.body;
 
-	                if (data.id) {
-	                    return this.putAction();
-	                }
+          if (data.id) {
+            return this.putAction();
+          }
 
-	                PackageService
-	                    .create(data)
-	                    .then(this.proxy('send'))
-	                    .fail(this.proxy('handleException'));
-	            },
-	            // Update a package
-	            putAction: function() {
-	                this.send(403, 'Updates are not allowed');
-	            }
-	        }
-	    );
+          PackageService
+            .create(data)
+            .then(this.proxy('send'))
+            .fail(this.proxy('handleException'));
+        },
+        // Update a package
+        putAction: function() {
+          this.send(403, 'Updates are not allowed');
+        }
+      }
+    );
 	};
 	```
 
@@ -113,25 +113,25 @@ All code in any code-base should look like a single person typed it, no matter h
 
 	```code
 	define([
-	        'app',
-	        'highlightjs'
-	    ],
-	    function( app, hljs ) {
-	        'use strict';
+      'app',
+      'highlightjs'
+    ],
+    function( app, hljs ) {
+      'use strict';
 
-	        app.controller( 'Home', [
-	            '$scope',
-	            ...
-	            function( $scope, ... ) {
+      app.controller( 'Home', [
+        '$scope',
+        ...
+        function( $scope, ... ) {
 
-	                // Init $scope properties
-	                // $scope helpers
-	                $scope.helpers = {
-	                    ...
-	                };
-	            }
-	        ]
-	    }
+          // Init $scope properties
+          // $scope helpers
+          $scope.helpers = {
+            ...
+          };
+        }
+      ]
+    }
 	);
 	```
 
@@ -147,24 +147,25 @@ All code in any code-base should look like a single person typed it, no matter h
 	```code
 	module.exports = function( Service ) {
 
-	    return ( require('./../classes/Controller.js') ).extend(
-	        {
-	            service: Service,
-	        },
-	        {
-	            groupedAction: function() {
-	                Service.getSettingsGroups()
-	                    .then( this.proxy( 'send' ) )
-	                    .fail( this.proxy( 'handleEx' ) );
-	            },
+    return ( require('./../classes/Controller.js') ).extend(
+      {
+        service: Service,
+      },
+      {
+        groupedAction: function() {
+          Service.getSettingsGroups()
+            .then( this.proxy( 'send' ) )
+            .fail( this.proxy( 'handleEx' ) );
+        },
 
-	            postAction: function() {
-	                var tmpId = 0,
-	                    settingObject = this.req.body;
+        postAction: function() {
+          var tmpId = 0,
+            settingObject = this.req.body;
 
-	                ...
-	            }
-	        });
+          ...
+        }
+      }
+    );
 	};
 	```
 
