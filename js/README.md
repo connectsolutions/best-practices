@@ -169,7 +169,7 @@ All code in any code-base should look like a single person typed it, no matter h
 
 1. <a name="jsfiles">Variable hoisting</a>
 
-  Always declare variables at the top of their scope (the top of global code and the top of function code) so it's clear which variables are function scoped (local) and which are resolved on the scope chain.
+  We declare all variables at the top of their scope (the top of global code and the top of function code) so it's clear which variables are function scoped (local) and which are resolved on the scope chain.
 
   A description of variable hoisting can be found <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting">here</a>
 
