@@ -75,7 +75,7 @@ provide good detail and are worth a read.
 
 And now on to the interface patterns.
 
-##Exports a Namespace
+## Exports a Namespace
 A simple and common pattern is to export an object with several properties is to
 use functions.  This allows the code requiring the module to pull in a collection
 of related functionality under a single namespace.
@@ -106,7 +106,7 @@ if (process.env.NODE_ENV === 'TEST') {
 }
 ```
 
-##Exports a Function
+## Exports a Function
 Another pattern is to export a function as the interface to a module. A common use
 of this pattern is to export a factory function that returns an object when invoked.
 We see this when using Express.js:
@@ -159,4 +159,45 @@ Error: boom
     at bomb (/Users/nicknance/dev/coso/best-practices/js/node/scripts/bomb2.js:3:9)
     at repl:1:2
     ...
+```
+
+## Exports a Constructor
+We define classes in JavaScript with constructor functions and create instances
+of classes with the new keyword.
+```
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.greet = function() {
+  return "Hi, I'm Jane.";
+};
+
+var person = new Person('Jane');
+console.log(person.greet()); // prints: Hi, I'm Jane
+```
+
+### Try to avoid `this` and `new`
+Even though it is best to avoid the use of new and this in Node, at times we need
+this capability.  
+
+For this pattern we implement a class-per-file and export the
+constructor to make our project organization clear and to make it easy for
+teammates to find the implementation of a class.
+```
+var Person = require('./person');
+
+var person = new Person('Jane');
+```
+The implementation should look like:
+```
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.greet = function() {
+  return "Hi, I'm " + this.name;
+};
+
+module.exports = Person;
 ```
