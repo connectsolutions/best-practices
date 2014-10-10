@@ -101,7 +101,7 @@ is important to manage state within the scope of each individual function.
 We use the pattern because it makes it easier to expose functionality to unit testing
 using the following method:
 ```
-if (process.env.NODE_ENV === 'TEST') {
+if (process.env.NODE_ENV === 'test') {
   exports.parsePath = parsePath;
 }
 ```
@@ -201,3 +201,37 @@ Person.prototype.greet = function() {
 
 module.exports = Person;
 ```
+## Exports a Singleton
+Export a singleton when you want all users of your module to share the state and
+behavior of a single class instance.
+
+Because require caches the value assigned to module.exports, all calls to
+require will return this same instance ensuring that it is a singleton
+in our application. We use an object-oriented design to encapsulate and
+decouple functionality, maintain state and support readability and comprehension,
+while creating a simple interface to users by creating and exporting an instance
+of the class.
+
+This pattern can be implemented as:
+```
+function UptimeCalculator() {
+  //...
+}
+
+module.exports = exports = new UptimeCalculator();
+```
+
+## Examples
+The Node REPL examples presented in this document can be found within this repo at:
+`js/node/scripts`
+
+I have included fully implemented examples that illustrate the use of private and public
+properties for each pattern presented above.  These modules include a complete
+mocha test suite that verifies the expected behavior of each module. There
+are a few extra details that can be teased out of these examples that I have not presented
+in this article.  You should find it worht your time to review them along with the test suite.
+
+These examples can be found in `js/node/examples`.  Use the following steps to run
+the test suite from the examples directory:
+* npm install
+* gulp tests
