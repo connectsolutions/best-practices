@@ -1,7 +1,7 @@
 'use strict';
 
 // constructor
-var Config = function(){
+function Config(){
   // instance variable
   this.environment = 'test';
   this.url = '';
@@ -17,19 +17,17 @@ Config.getBaseUrl = function() {
     return config.staticBase;
 };
 
-Config.prototype = {
-    // static variable
-    staticBase: 'http://localhost:8080/static',
+// static variable
+Config.prototype.staticBase = 'http://localhost:8080/static',
 
-    // instance function
-    getEnvironment: function() {
-      return this.environment;
-    },
+// instance function
+Config.prototype.getEnvironment = function() {
+  return this.environment;
+}
 
-    getUrl: function() {
-      return concat(this.staticBase, this.url);
-    }
-};
+Config.prototype.getUrl = function() {
+  return concat(this.staticBase, this.url);
+}
 
 // make private functions testable
 if (process.env.NODE_ENV === 'test') {

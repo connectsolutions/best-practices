@@ -1,7 +1,7 @@
 'use strict';
 
 var expect = require('chai').expect;
-var config = require('../constructor-module');
+var config = require('../singleton-module');
 
 describe('Singleton Pattern', function(){
 
