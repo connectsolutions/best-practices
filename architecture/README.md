@@ -6,7 +6,7 @@
 * [Architecture Key Aspects](#architecture)
 * [Microservices Described](#microservices)
 
-## <a href="introduction"></a>Introduction
+## <a name="introduction"></a>Introduction
 
 [SOLID](http://en.wikipedia.org/wiki/SOLID_(object-oriented_design) stands for five basic principles of object-oriented programming and design. The principles, when applied together, intend to make it more likely that a programmer will create a system that is easy to maintain and extend over time.
 
@@ -23,7 +23,7 @@ There is an excellent video by [Derick Baily](https://github.com/derickbailey) n
 
 Many people are using these principles in architecture to achieve maintainability and extendability at the architecture level.  Plus this allows the same primary principals to be applied across the entire application from a single module to an enterprise application architecture.
 
-## <a href="architecture"></a>Architecture Key Aspects
+## <a name="architecture"></a>Architecture Key Aspects
 
 ### Hexagonal (Ports and Adapters)
 
@@ -63,7 +63,7 @@ Separate write operations (commands) from reads (queries).
 
 The term "Microservice Architecture" has sprung up over the last few years to describe a particular way of designing software applications as suites of independently deployable services. This approach is an excellent way to
 
-## <a href="microservices"></a>Microservices Described
+## <a name="microservices"></a>Microservices Described
 Microservice Architecture is an architectural concept that aims to decouple a solution by decomposing functionality into discrete independently deployable services. Think of it as applying many of the principles of [SOLID](http://en.wikipedia.org/wiki/SOLID_(object-oriented_design) at an architectural level, instead of classes you've got services.
 
 In short, the microservice architectural style is an approach to developing a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API. These services are built around business capabilities and independently deployable by fully automated deployment machinery. There is a bare minimum of centralized management of these services, which may be written in different programming languages and use different data storage technologies.
@@ -77,12 +77,12 @@ As with any definition that outlines common characteristics, not all microservic
 * [Decentralized Data Management](#decentralized_data)
 * [Infrastructure Automation](#automation)
 
-### <a href="components"></a>Services vs Componentization
+### <a name="components"></a>Services vs Componentization
 Microservice architectures will use libraries, but their primary way of componentizing their own software is by breaking down into services. We define libraries as components that are linked into a program and called using in-memory function calls, while services are out-of-process components who communicate with a mechanism such as a web service request, or remote procedure call.
 
 One main reason for using services as components (rather than libraries) is that services are independently deployable. If you have an application that consists of a multiple libraries in a single process, a change to any single component results in having to redeploy the entire application. But if that application is decomposed into multiple services, you can expect many single service changes to only require that service to be redeployed. That's not an absolute, some changes will change service interfaces resulting in some coordination, but the aim of a good microservice architecture is to minimize these through cohesive service boundaries and evolution mechanisms in the service contracts.
 
-### <a href="endpoints"></a>Smart endpoints and dumb pipes
+### <a name="endpoints"></a>Smart endpoints and dumb pipes
 When building communication structures between different processes, many products and approaches stress putting significant smarts into the communication mechanism itself. A good example of this is the Enterprise Service Bus (ESB), where ESB products often include sophisticated facilities for message routing, choreography, transformation, and applying business rules.
 
 The microservice architectures favor an alternative approach: smart endpoints and dumb pipes. Applications built from microservices aim to be as decoupled and as cohesive as possible
@@ -93,12 +93,12 @@ These are choreographed using simple RESTish protocols rather than complex proto
 
 The second approach in common use is messaging over a lightweight message bus. The infrastructure chosen is typically dumb (dumb as in acts as a message router only) - simple implementations such as RabbitMQ or ZeroMQ don't do much more than provide a reliable asynchronous fabric - the smarts still live in the end points that are producing and consuming messages; in the services.
 
-### <a href="decentralized_data"></a>Decentralized Data Management
+### <a name="decentralized_data"></a>Decentralized Data Management
 Decentralization of data management, at the most abstract level, means that the conceptual model of the world will differ between systems. This is a common issue when integrating across a large enterprise, the sales view of a customer will differ from the support view.
 
 As well as decentralizing decisions about conceptual models, microservices also decentralize data storage decisions.  Microservices prefer letting each service manage its own database, either different instances of the same database technology, or entirely different database systems.
 
-### <a href="automation"></a>Infrastructure Automation
+### <a name="automation"></a>Infrastructure Automation
 
 Many of the products or systems being built with microservices are being built by teams with extensive experience of Continuous Delivery and it's precursor, Continuous Integration. Teams building software this way make extensive use of infrastructure automation techniques.
 
