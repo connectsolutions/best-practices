@@ -23,7 +23,7 @@ There is an excellent video by [Derick Baily](https://github.com/derickbailey) n
 
 Many people are using these principles in architecture to achieve maintainability and extendability at the architecture level.  Plus this allows the same primary principals to be applied across the entire application from a single module to an enterprise application architecture.
 
-## <a href="introduction"></a>Architecture Key Aspects
+## <a href="architecture"></a>Architecture Key Aspects
 
 ### Hexagonal (Ports and Adapters)
 
