@@ -8,12 +8,12 @@ Do it the unix-way:
 
 > Developers should build a program out of simple parts connected by well defined interfaces, so problems are local, and parts of the program can be replaced in future versions to support new features.
 
-Do not build Deathstars - keep it simple, a module should do one thing, but that thing well.
+Do not build Deathstars - keep it simple, a module should do one thing well.
 
 ## Overview
-When you write a module, what options do you have for designing its interface?  The goal of this document is to identify and illustrate useful patterns for module interface design and to help you understand when and how to use them in your own work.
+WThe goal of this article is to identify and illustrate useful patterns for module interface design and to help you understand when and how to use them in your own work.
 
-The following is the primary patterns, many of which can be used in combination. They are:
+The following are the primary patterns, many of which can be used in combination. They are:
 
 * Exports a Namespace
 * Exports a Function
@@ -21,9 +21,9 @@ The following is the primary patterns, many of which can be used in combination.
 * Exports a Singleton
 
 ## Require fundamentals
-In Node requiring a file is requiring the module it defines. All modules have a reference to an implicit module object whose property module.exports is what is returned when you call require. A reference to module.exports is also available as exports.
+In Node, requiring a file is requiring the module it defines. All modules have a reference to an implicit module object whose property module.exports is what is returned when you call require. A reference to module.exports is also available as exports.
 
-It's as if there were an implicit line at the beginning of each module that reads:
+Require makes it as if there were an implicit line at the beginning of each module that reads:
 
 ```
 var exports = module.exports = {};
