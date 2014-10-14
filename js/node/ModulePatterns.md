@@ -10,6 +10,12 @@ Do it the unix-way:
 
 Do not build Deathstars - keep it simple, a module should do one thing well.
 
+### Avoid this and new
+
+Binding to a specific context in Node is not a win, because Node involves passing around lots of callbacks, and heavy use of higher-level functions to manage control flow. Using a functional style will save you a lot of trouble.
+
+Of course, there are some cases, when prototypes can be more efficient, but if possible, try to avoid them.
+
 ## Overview
 WThe goal of this article is to identify and illustrate useful patterns for module interface design and to help you understand when and how to use them in your own work.
 
@@ -166,8 +172,12 @@ var person = new Person('Jane');
 ```
 The implementation should look like:
 ```
-function Person(name) {
-  this.name = name;
+function concatName(firstName, lastName) {
+  return firstName + ' ' + lastName;
+}
+
+function Person(firstName, lastName) {
+  this.name = concatName(firstName, lastName);
 }
 
 Person.prototype.greet = function() {
