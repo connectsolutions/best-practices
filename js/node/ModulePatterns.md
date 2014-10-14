@@ -66,11 +66,11 @@ A simple and common pattern is to export an object with several properties is to
 
 We use the following pattern:
 ```
-function readFile(path, options, callback_) {
+function readFile(path, options, callback) {
   //
 }
 
-function getFileNames(path, options, callback_) {
+function getFileNames(path, options, callback) {
   //
 }
 
