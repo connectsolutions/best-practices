@@ -140,7 +140,11 @@ Error: boom
 We define classes in JavaScript with constructor functions and create instances of classes with the new keyword.
 ```
 function Person(name) {
-  this.name = name;
+  if ( this instanceof Person ) {
+    this.name = name;
+  } else {
+    return new Person(name);
+  }
 }
 
 Person.prototype.greet = function() {
