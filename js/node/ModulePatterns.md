@@ -204,7 +204,7 @@ module.exports = exports = new UptimeCalculator();
 The Node REPL examples presented in this document can be found within this repo at:
 `js/node/scripts`
 
-I have included fully implemented examples that illustrate the use of private and public properties for each pattern presented above.  These modules include a complete mocha test suite that verifies the expected behavior of each module. There are a few extra details that can be teased out of these examples that I have not presented in this article.  You should find it worht your time to review them along with the test suite.
+I have included fully implemented examples that illustrate the use of private and public properties for each pattern presented above.  These modules include a complete mocha test suite that verifies the expected behavior of each module. There are a few extra details that can be teased out of these examples that I have not presented in this article.  You should find it worth your time to review them along with the test suite.
 
 These examples can be found in `js/node/examples`.  Use the following steps to run the test suite from the examples directory:
 * npm install
