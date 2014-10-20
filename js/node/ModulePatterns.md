@@ -27,7 +27,7 @@ The following are the primary patterns, many of which can be used in combination
 * Exports a Singleton
 
 ## Require fundamentals
-In Node, requiring a file is requiring the module it defines. All modules have a reference to an implicit module object whose property module.exports is what is returned when you call require. A reference to module.exports is also available as exports.
+In Node, requiring a file is requiring the module it defines. All modules have a reference to an implicit module object whose property `module.exports` is what is returned when you call require. A reference to module.exports is also available as exports.
 
 Require makes it as if there were an implicit line at the beginning of each module that reads:
 
@@ -83,7 +83,7 @@ function getFileNames(path, options, callback) {
 exports.readFile = readFile;
 exports.getFileNames = getFileNames;
 ```
-This first defines the functionality of the module and then define the functionality to expose for public use.  It is important to understand when defining this type of module that the code and it's state are shared throughout the life of the application.  It is important to manage state within the scope of each individual function.
+This first defines the functionality of the module and then define the functionality to expose for public use.  It is important to understand when defining this type of module that the code and its state are shared throughout the life of the application.  It is important to manage state within the scope of each individual function.
 
 We use the pattern because it makes it easier to expose functionality to unit testing using the following method:
 ```
@@ -208,4 +208,4 @@ I have included fully implemented examples that illustrate the use of private an
 
 These examples can be found in `js/node/examples`.  Use the following steps to run the test suite from the examples directory:
 * npm install
-* gulp tests
+* gulp test
