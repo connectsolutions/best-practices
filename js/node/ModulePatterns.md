@@ -14,10 +14,10 @@ Do not build Deathstars - keep it simple, a module should do one thing well.
 
 Binding to a specific context in Node is not a win, because Node involves passing around lots of callbacks, and heavy use of higher-level functions to manage control flow. Using a functional style will save you a lot of trouble.
 
-Of course, there are some cases, when prototypes can be more efficient, but if possible, try to avoid them.
+Of course there are some cases when prototypes can be more efficient, but if possible try to avoid them.
 
 ## Overview
-WThe goal of this article is to identify and illustrate useful patterns for module interface design and to help you understand when and how to use them in your own work.
+The goal of this article is to identify and illustrate useful patterns for module interface design and to help you understand when and how to use them in your own work.
 
 The following are the primary patterns, many of which can be used in combination. They are:
 
@@ -27,7 +27,7 @@ The following are the primary patterns, many of which can be used in combination
 * Exports a Singleton
 
 ## Require fundamentals
-In Node, requiring a file is requiring the module it defines. All modules have a reference to an implicit module object whose property module.exports is what is returned when you call require. A reference to module.exports is also available as exports.
+In Node, requiring a file is requiring the module it defines. All modules have a reference to an implicit module object whose property module exports is what is returned when you call require. A reference to module.exports is also available as exports.
 
 Require makes it as if there were an implicit line at the beginning of each module that reads:
 
