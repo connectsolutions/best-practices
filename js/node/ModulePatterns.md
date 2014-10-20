@@ -27,7 +27,7 @@ The following are the primary patterns, many of which can be used in combination
 * Exports a Singleton
 
 ## Require fundamentals
-In Node, requiring a file is requiring the module it defines. All modules have a reference to an implicit module object whose property module exports is what is returned when you call require. A reference to module.exports is also available as exports.
+In Node, requiring a file is requiring the module it defines. All modules have a reference to an implicit module object whose property module.exports is what is returned when you call require. A reference to module.exports is also available as exports.
 
 Require makes it as if there were an implicit line at the beginning of each module that reads:
 
