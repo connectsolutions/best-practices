@@ -1,23 +1,26 @@
-# The Reactive Architecture Applied
+# The Hexagonal Architecture Applied
 
 ## Table Of Contents
 
-* [Goals](#goals)
-* [Principals](#principals)
+* [Introduction](#introduction)
 * [Architecture Key Aspects](#architecture)
 * [Microservices Described](#microservices)
 
-## <a name="goals"></a>Goals
+## <a name="introduction"></a>Introduction
 
-We want systems that are Responsive, Resilient, Elastic and Message Driven. These systems are called Reactive Systems.  Systems built as Reactive Systems are more flexible, loosely-coupled and scalable. This makes them easier to develop and amenable to change. They are significantly more tolerant of failure and when failure does occur they meet it with elegance rather than disaster. Reactive Systems are highly responsive, giving users effective interactive feedback.
+[SOLID](http://en.wikipedia.org/wiki/SOLID_(object-oriented_design) stands for five basic principles of object-oriented programming and design. The principles, when applied together, intend to make it more likely that a programmer will create a system that is easy to maintain and extend over time.
 
-* Responsive: The system responds in a timely manner if at all possible.  Responsive systems focus on providing rapid and consistent response times, establishing reliable upper bounds so they deliver a consistent quality of service.
+SOLID is an acronym where:-
 
-* Resilient: The system stays responsive in the face of failure. This applies not only to highly-available, mission critical systems — any system that is not resilient will be unresponsive after a failure.
+* S stands for SRP (Single responsibility principle)
+* O stands for OCP (Open closed principle)
+* L stands for LSP (Liskov substitution principle)
+* I stands for ISP (Interface segregation principle)
+* D stands for DIP (Dependency inversion principle)
 
-* Elastic: The system stays responsive under varying workload. Reactive Systems can react to changes in the input rate by increasing or decreasing the resources allocated to service these inputs.
+> There is an excellent video by [Derick  Baily](https://github.com/derickbailey) named [SOLID JavaScript In A Wobbly](https://www.youtube.com/watch?v=TAVn7s-kO9o) that provides clear examples of each of these principals applied in JavaScript.
 
-* Message Driven: Reactive Systems rely on asynchronous message-passing to establish a boundary between components that ensures loose coupling, isolation, location transparency, and provides the means to delegate errors as messages.
+Many people are using these principles in architecture to achieve maintainability and extendability at the architecture level.  Plus this allows the same primary principals to be applied across the entire application from a single module to an enterprise application architecture.
 
 ## <a name="architecture"></a>Architecture Key Aspects
 
@@ -46,6 +49,8 @@ Strengths and benefits of the hexagonal architecture include:
 * Testability: The usage of ports and adapters to communicate with all our infrastructure (e.g. db, messaging systems, etc) eases the usage of mocks in order to test our applicative services and domain code. Tests could even be written for our application service layer before we decide which technology to be plugged with its corresponding port/adapter (whether REST, SOAP, specific messaging, db, etc)
 
 > The [Boundaries](https://www.youtube.com/watch?v=eOYal8elnZk) video is a great talk on the value of applying the principals and how it improves automated testing.
+
+
 
 * Adaptability / Time to market: adding a new way to interact with your application is very easy: you just add a new port/adapter to support this new technology and that's it! You can usually have multiple ways or technologies to interact with your application
 
@@ -101,24 +106,6 @@ As well as decentralizing decisions about conceptual models, microservices also 
 Many of the products or systems being built with microservices are being built by teams with extensive experience of Continuous Delivery and it's precursor, Continuous Integration. Teams building software this way make extensive use of infrastructure automation techniques.
 
 Since this isn't an article on Continuous Delivery we will call attention to just a couple of key features here. We want as much confidence as possible that our software is working, so we run lots of automated tests. Promotion of working software 'up' the pipeline means we automate deployment to each new environment.
-
-## SOLID in JavaScript
-
-[SOLID](http://en.wikipedia.org/wiki/SOLID_(object-oriented_design) stands for five basic principles of object-oriented programming and design. The principles, when applied together, intend to make it more likely that a programmer will create a system that is easy to maintain and extend over time.
-
-SOLID is an acronym where:-
-
-* S stands for SRP (Single responsibility principle)
-* O stands for OCP (Open closed principle)
-* L stands for LSP (Liskov substitution principle)
-* I stands for ISP (Interface segregation principle)
-* D stands for DIP (Dependency inversion principle)
-
-> There is an excellent video by [Derick  Baily](https://github.com/derickbailey) named [SOLID JavaScript In A Wobbly](https://www.youtube.com/watch?v=TAVn7s-kO9o) that provides clear examples of each of these principals applied in JavaScript.
-
-Many people are using these principles in architecture to achieve maintainability and extendability at the architecture level.  Plus this allows the same primary principals to be applied across the entire application from a single module to an enterprise application architecture.
-
-
 
 ## Domain-driven JavaScript
 
