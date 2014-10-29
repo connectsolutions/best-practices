@@ -17,7 +17,7 @@ The article defines the requirements that must be followed by each microservice 
 
 ### <a name="single-purpose"></a>Single purpose
 
-A [microservice](http://en.wikipedia.org/wiki/Microservices) should have a single purpose.  Do one thing and do it well.  The [single responsibility principle](http://en.wikipedia.org/wiki/Single_responsibility_principle) states that every (service) should have a single responsibility, and that responsibility should be entirely encapsulated by the context. In most cases this should result in a single end point.
+A [microservice](http://en.wikipedia.org/wiki/Microservices) should have a single purpose.  Do one thing and do it well.  The [single responsibility principle](http://en.wikipedia.org/wiki/Single_responsibility_principle) states that every microservice should have a single responsibility, and that responsibility should be entirely encapsulated by the microservice. In most cases this should result in a single end point.
 
 ### <a name="decoupled"></a>Decoupled
 
