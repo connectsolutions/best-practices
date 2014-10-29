@@ -25,7 +25,7 @@ A microservice should have limited dependencies on the rest of the system.  If d
 
 ### <a name="encapsulated"></a>Encapsulated
 
-A microservice should [encapsulate](http://en.wikipedia.org/wiki/Encapsulation_%28object-oriented_programming%29) and manage it's own data.  This includes decentralizing the conceptual models and data storage.  Each service should protect is't data from direct access by other services.
+A microservice should [encapsulate](http://en.wikipedia.org/wiki/Encapsulation_%28object-oriented_programming%29) and manage it's own data.  This includes decentralizing the conceptual models and data storage.  Each service should protect it's data from direct access by other services.
 
 Hiding the internals of the service protects its integrity by preventing users from setting the internal data of the service into an invalid or inconsistent state. A supposed benefit of encapsulation is that it can reduce system complexity, and thus increase robustness, by allowing the developer to limit the inter-dependencies between software components
 
@@ -37,17 +37,17 @@ A microservice must support the [message queue](http://en.wikipedia.org/wiki/Mes
 
 If a service supports direct access via an end point, the end point must support the [REST](http://en.wikipedia.org/wiki/Representational_state_transfer#Architectural_constraints) architectural style.  It must use [JSON](http://en.wikipedia.org/wiki/JSON) as the data transfer format.
 
-Requiring the use of REST and JSON provides a language indendpent approach to interprocess communication.
+Requiring the use of REST and JSON provides a language independant approach to interprocess communication.
 
 ### <a name="registration"></a>Registration
 
-A microservice must emit a registration event on the message queue each time it starts up.  Each application architecture is free to define the registration process for its' architecture.  However, it is required that each service support this registration process via the messaging queue.
+A microservice must emit a registration event on the message queue each time it starts up.  Each application architecture is free to define the registration process for it's architecture.  However, it is required that each service support this registration process via the messaging queue.
 
 It is expected that these registration events will be collected by a service that will offer the ability to view the registered services and their associated documentation.
 
 ### <a name="monitoring"></a>Monitoring
 
-It is expected that each microservice will implement techniques to monitor its self as well as other services it may depend on.  This includes but is not limited to sending an heart beat at a defined interval.  Each application is free to define the required heart beat interval.  
+It is expected that each microservice will implement techniques to monitor itself as well as other services it may depend on.  This includes but is not limited to sending an heart beat at a defined interval. Each application is free to define the required heart beat interval.  
 
 Another example of self monitoring is sending pushing an error event into the message queue if a service is unable to access a dependent service.
 
@@ -57,7 +57,7 @@ The logging of warning and error events must be accomplished by publishing these
 
 ### <a name="ci"></a>Continuous Integration
 
-Each service is expected to follow the practice of [continues integration](http://en.wikipedia.org/wiki/Continuous_integration) which includes but is not limited to:
+Each service is expected to follow the practice of [Continuous Integration](http://en.wikipedia.org/wiki/Continuous_integration) which includes but is not limited to:
 
 * Regular integration of changes to the mainline
 * Automated build process
@@ -65,6 +65,6 @@ Each service is expected to follow the practice of [continues integration](http:
 
 ### <a name="deployment"></a>Auto Deployable
 
-A service must be deployed via an automated deployment mechanism.  This includes the initial bare medal deployment as well as each tagged release.
+A service must be deployed via an automated deployment mechanism.  This includes the initial bare metal deployment as well as each tagged release.
 
-Most distributed application architectures will have to many microservices to allow manual deployment to be achievable without significant time and energy.
+Most distributed application architectures will have too many microservices to allow manual deployment to be achievable without significant time and energy.
