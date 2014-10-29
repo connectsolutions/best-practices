@@ -7,16 +7,6 @@
 * [Architecture Key Aspects](#architecture)
 * [Microservices Described](#microservices)
 
-## <a name="principals"></a>Principals
-
-* Design For Failure (and nothing will fail)
-* Decouple
-* Elasticity
-* Dynamic and Static (keep dynamic data closer to application and kepp static data closer to end-user)
-* Think Parallel
-* Don't fear constraints
-* Security
-
 ## <a name="goals"></a>Goals
 
 We want systems that are Responsive, Resilient, Elastic and Message Driven. These systems are called Reactive Systems.  Systems built as Reactive Systems are more flexible, loosely-coupled and scalable. This makes them easier to develop and amenable to change. They are significantly more tolerant of failure and when failure does occur they meet it with elegance rather than disaster. Reactive Systems are highly responsive, giving users effective interactive feedback.
