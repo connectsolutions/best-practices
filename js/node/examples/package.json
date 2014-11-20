@@ -1,0 +1,22 @@
+{
+  "name": "node-module-patterns",
+  "version": "0.0.0",
+  "description": "Node Module Patterns",
+  "main": "test.js",
+  "scripts": {
+    "test": "npm test.js"
+  },
+  "author": "Nick Nance",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "gulp": "^3.8.8",
+    "gulp-jshint": "^1.8.4",
+    "gulp-mocha": "^1.1.0",
+    "jshint": "^2.5.5",
+    "jshint-stylish": "^0.4.0",
+    "mocha": "^1.21.4",
+    "underscore": "^1.7.0"
+  }
+}
