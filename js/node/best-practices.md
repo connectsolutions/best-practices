@@ -1,6 +1,6 @@
 # Node.js Best Practices
 
-This outlines the recommended best practices for common issues found in NodeJS.   It is intended to be a living document and all input is welcome.
+This document provides the recommended best practices for common issues found in NodeJS.   It is intended to be a living document and your input is welcome.
 
 Some of these Node.js best practices fall under the category of Coding style, some deals with Developer workflow.
 
@@ -64,64 +64,55 @@ Do it the unix-way:
 > Developers should build a program out of simple parts connected by well defined interfaces, so problems are local, and parts of the program can be replaced in future versions to support new features.
 
 Do not build Deathstars - keep it simple, a module should do one thing, but that thing well.
-Use good async patterns
-Use async.
-Error handling
-Errors can be divided into two main parts: operational errors and programmer errors.
-Operational errors
+### Use good async patterns
+Use [async](https://github.com/caolan/async).
+### Error handling
+Errors can be divided into two main parts: `operational` errors and `programmer errors`.
+#### Operational errors
 Operational errors can happen in well-written applications as well, because they are not bugs, but problems with the system / a remote service, like:
-request timeoutsystem is out of memoryfailed to connect to a remote service
+* request timeout* system is out of memory* failed to connect to a remote service
+##### Handling operational errors
 
-Handling operational errors
+Depending on the type of the operational error, you can do the followings:
 
-Depending on the type of the operational error, you can do the followings:
+* Try to solve the error - if a file is missing, you may need to create one first
+* Retry the operation, when dealing with network communication
+* Tell the client, that something is not ok - can be used, when handling user inputs
+* Crash the process, when the error condition is unlikely to change on its own, like the application cannot read its configuration file
 
-Try to solve the error - if a file is missing, you may need to create one firstRetry the operation, when dealing with network communicationTell the client, that something is not ok - can be used, when handling user inputsCrash the process, when the error condition is unlikely to change on its own, like the application cannot read its configuration file
+Also, it is true for all the above: `log everything`.
+#### Programmer errors
+Programmer errors are bugs. This is the thing you can avoid, like:
+* called an async function without a callback
+* cannot read property of `undefined`
 
-Also, it is true for all the above: log everything.
+##### Handling programmer errors
+Crash immediately - as these errors are bugs, you won't know in which state your application is. A process control system should restart the application when it happens, like: forever.
 
-Programmer errors
+## Workflow tips
+Start a new project with `npm init`
 
-Programmer errors are bugs. This is the thing you can avoid, like:
+The `init` command helps you create the application's `package.json` file. It sets some defaults, which can be later modified.
+Start a new projet with:
 
-called an async function without a callbackcannot read property of undefined
+```mkdir my-new-project
+cd my-new-project
+npm init
+```
+### Specify a start and test script
 
-Handling programmer errors
+In your `package.json` file you can set scripts under the `scripts` section. By default, `npm init` generates two, `start` and `test`. These can be run with `npm start` and `npm test`.
+Also, as a bonus point: you can define custom scripts here and can be invoked with `npm run <SCRIPT_NAME>`.
 
-Crash immediately - as these errors are bugs, you won't know in which state your application is. A process control system should restart the application when it happens, like:supervisord or monit.
+Note, that NPM will set up `$PATH` to look in `node_modules/.bin` for executables. This helps avoid global installs of NPM modules.
 
-Workflow tips
+### Environment variables
 
-Start a new project with npm init
+Production/staging deployments should be done with environment variables. The canonical way to do this is to set the `NODE_ENV` variable to either `production` or `staging`.
 
-The init command helps you create the application's package.json file. It sets some defaults, which can be later modified.
-
-Start writing your fancy new application should begin with:
-
-mkdir my-awesome-new-project cd my-awesome-new-project npm init
-
-Specify a start and test script
-
-In your package.json file you can set scripts under the scripts section. By default, npm init generates two, startand test. These can be run with npm start and npm test.
-
-Also, as a bonus point: you can define custom scripts here and can be invoked with npm run-script <SCRIPT_NAME>.
-
-Note, that NPM will set up $PATH to look in node_modules/.bin for executables. This helps avoid global installs of NPM modules.
-
-Environment variables
-
-Production/staging deployments should be done with environment variables. The most common way to do this is to set the NODE_ENV variable to either production or staging.
-
-Depending on your environment variable, you can load your configuration, with modules like nconf.
-
-Of course, you can use other environment variables in your Node.js applications with process.env, which is an object that contains the user environment.
-
-Do not reinvent the wheel
-
-Always look for existing solutions first. NPM has a crazy amount of packages, there is a pretty good chance you will find the functionality that you are looking for.
-
-Use a style guide
-
-It is much easier to understand a large codebase, when all the code is written in a consistent style. It should include indent rules, variable naming conventions, best practices and lots of other things.
-
-For a real example, check out RisingStack's Node.js style guide.
+Depending on your environment variable, you can load your configuration, with modules like [node-config](https://github.com/lorenwest/node-config).
+Of course, you can use other environment variables in your Node.js applications with `process.env`, which is an object that contains the user environment.
+### Do not reinvent the wheel
+Always look for existing solutions first. NPM has a crazy amount of packages, there is a pretty good chance you will find the functionality that you are looking for.
+## Use a style guide
+It is much easier to understand a large codebase, when all the code is written in a consistent style. It should include indent rules, variable naming conventions, best practices and lots of other things.  You can find our style code [here]().
