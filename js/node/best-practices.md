@@ -17,7 +17,7 @@ It should be like this:
 		// should be passed here
 		return callback(null, dragon);
 }
-```
+```
 ### Always check for errors in callbacks
 To better understand why this is a must, first start with an example that is broken in every possible way, then fix it.
 
@@ -115,4 +115,42 @@ Of course, you can use other environment variables in your Node.js applications 
 ### Do not reinvent the wheel
 Always look for existing solutions first. NPM has a crazy amount of packages, there is a pretty good chance you will find the functionality that you are looking for.
 ## Use a style guide
-It is much easier to understand a large codebase, when all the code is written in a consistent style. It should include indent rules, variable naming conventions, best practices and lots of other things.  You can find our style code [here]().
+It is much easier to understand a large codebase, when all the code is written in a consistent style. It should include indent rules, variable naming conventions, best practices and lots of other things.  You can find our style code [here](/js/JavaScript.md).
+
+### Automate style checking
+
+JSHINT is a code style checker for JavaScript. Every javascript project should include JSHINT:
+
+```
+npm install jshint --save-dev  
+```
+
+The very next step you have to make is to enable it from the package.json file by adding a custom script:
+
+scripts: {  
+    "lint": "jshint index.js"
+}
+Of course, you can add multiple files/directories to check. But why we have just created the custom script inside the package.json file? We installed jshint as a local dependency only, so we can have multiple versions on the same system. This will work because NPM will put `node_modules/.bin` on the PATH while executing.  This helps avoid the use of globally installed modules.
+
+You can either specify the configuration file manually via the --config flag, use a special file `.jshintrc` or put your config into your projects `package.json` file under the `jshintConfig` property.
+
+### Enforce JSHint Rules
+
+Your build pipeline should contain JSHint as well, but it may be a good idea to run pre-commit checks on the developers' computers as well.
+
+To do this easily you can use the pre-commit NPM package:
+
+```
+npm install --save-dev pre-commit  
+```
+
+and configure it in your package.json file:
+
+```
+pre-commit": [  
+    "jshint",
+    "jscs"
+],
+```
+
+Note, that pre-commit will look up what to run in your package.json's script section. By enabling this, these checks will run before every commit.
