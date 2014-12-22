@@ -3,7 +3,6 @@
 ## Table Of Contents
 
 * [Goals](#goals)
-* [Principals](#principals)
 * [Architecture Key Aspects](#architecture)
 * [Microservices Described](#microservices)
 
@@ -45,7 +44,7 @@ Strengths and benefits of the hexagonal architecture include:
 
 * Testability: The usage of ports and adapters to communicate with all our infrastructure (e.g. db, messaging systems, etc) eases the usage of mocks in order to test our applicative services and domain code. Tests could even be written for our application service layer before we decide which technology to be plugged with its corresponding port/adapter (whether REST, SOAP, specific messaging, db, etc)
 
-> The [Boundaries](https://www.youtube.com/watch?v=eOYal8elnZk) video is a great talk on the value of applying the principals and how it improves automated testing.
+> The [Boundaries](https://www.youtube.com/watch?v=eOYal8elnZk) video is a great talk on the value of applying the principles and how it improves automated testing.
 
 * Adaptability / Time to market: adding a new way to interact with your application is very easy: you just add a new port/adapter to support this new technology and that's it! You can usually have multiple ways or technologies to interact with your application
 
