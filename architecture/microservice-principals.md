@@ -1,6 +1,6 @@
 # 10 Principals of a CoSo Microservice
 
-The article defines the requirements that must be followed by each microservice implementation before being considered for production deployment.  
+The article defines the requirements that must be followed by each microservice implementation before being considered for production deployment.
 
 ## Index
 
@@ -27,7 +27,7 @@ A service should NOT be able to drive business logic in another service. If this
 
 ### <a name="encapsulated"></a>Encapsulated
 
-A microservice should [encapsulate](http://en.wikipedia.org/wiki/Encapsulation_%28object-oriented_programming%29) and manage it's own datan and business logic. This includes decentralizing the conceptual models and data storage.  Each service should protect it's data from direct access by other services.
+A microservice should [encapsulate](http://en.wikipedia.org/wiki/Encapsulation_%28object-oriented_programming%29) and manage it's own data and business logic. This includes decentralizing the conceptual models and data storage.  Each service should protect it's data from direct access by other services.
 
 Hiding the internals of the service protects its integrity by preventing users from setting the internal data of the service into an invalid or inconsistent state. A supposed benefit of encapsulation is that it can reduce system complexity, and thus increase robustness, by allowing the developer to limit the inter-dependencies between software components
 
@@ -49,7 +49,7 @@ It is expected that these registration events will be collected by a service tha
 
 ### <a name="monitoring"></a>Monitoring
 
-It is expected that each microservice will implement techniques to monitor itself as well as other services it may depend on.  This includes but is not limited to sending an heart beat at a defined interval. Each application is free to define the required heart beat interval.  
+It is expected that each microservice will implement techniques to monitor itself as well as other services it may depend on.  This includes but is not limited to sending an heart beat at a defined interval. Each application is free to define the required heart beat interval.
 
 Another example of self monitoring is sending pushing an error event into the message queue if a service is unable to access a dependent service.
 

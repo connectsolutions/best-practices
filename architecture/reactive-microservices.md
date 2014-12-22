@@ -35,7 +35,7 @@ Key points:
 
 * Input and output ports to facilitate communication with the core Domain Model.
 
-* Adapters are created for each I/O port and consumer. Siting between clients, on the outside, and the core, on the inside.
+* Adapters are created for each I/O port and consumer. Sitting between clients, on the outside, and the core, on the inside.
 
 * Inputs: HTTP (REST, SOAP), message queue (AMQP), Outputs: persistence, messaging
 
@@ -51,7 +51,7 @@ Strengths and benefits of the hexagonal architecture include:
 
 * Understandability: Rather than having a solution where use cases are completely lost or mixed within all the technical stuff, this architecture style states the emergence of an applicative-use-case-layer (with all your use case handlers in a dedicated module). The proper location to make our functional intentions stand out.
 
-* Use case driven & [DDD](http://en.wikipedia.org/wiki/Domain-driven_design) compliance:  Indeed, with this architecture style, we design our applications with our use cases in mind; not the number of persistence technologies or binding types we will need to support! a pragmatic architect usually defer decisions about the choice of frameworks or tools to be used.
+* Use case driven & [DDD](http://en.wikipedia.org/wiki/Domain-driven_design) compliance:  Indeed, with this architecture style, we design our applications with our use cases in mind; not the number of persistence technologies or binding types we will need to support. A pragmatic architect usually defers decisions about the choice of frameworks or tools to be used.
 
 ### Command-Query Responsibility Segregation (CQRS)
 
@@ -59,7 +59,7 @@ Separate write operations (commands) from reads (queries).
 
 ### Scaling Hexagonal Architecture with Microservices
 
-The term "Microservice Architecture" has sprung up over the last few years to describe a particular way of designing software applications as suites of independently deployable services. This approach is an excellent way to apply the hexagonal architecture to an application such that it can scale over time but maintain the characteristics of maintainability and extensability.
+The term "Microservice Architecture" has sprung up over the last few years to describe a particular way of designing software applications as suites of independently deployable services. This approach is an excellent way to apply the hexagonal architecture to an application such that it can scale over time but maintain the characteristics of maintainability and extensibility.
 
 ## <a name="microservices"></a>Microservices Described
 Microservice Architecture is an architectural concept that aims to decouple a solution by decomposing functionality into discrete independently deployable services. Think of it as applying many of the principles of [SOLID](http://en.wikipedia.org/wiki/SOLID_(object-oriented_design) at an architectural level, instead of classes you've got services.
@@ -68,7 +68,7 @@ In short, the microservice architectural style is an approach to developing a si
 
 ### Characteristics of the Microservice Architecture
 
-As with any definition that outlines common characteristics, not all microservice architectures have all the characteristics describe below, but we do expect that most microservice architectures exhibit most characteristics.
+As with any definition that outlines common characteristics, not all microservice architectures have all the characteristics described below, but we do expect that most microservice architectures exhibit most characteristics.
 
 * [Services vs Componentization](#components)
 * [Smart endpoints and dumb pipes](#endpoints)
