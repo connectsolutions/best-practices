@@ -58,7 +58,20 @@ This is a living document and new ideas for improving the code around us are alw
 
 * Backbone models fire 'sync' and 'error' events by default so we can use these events instead of providing callbacks. Consider these two alternatives:
 
+```javascript
+model.fetch({
+  success: handleSuccess,
+  error: handleError
+});
+```
+
 This is much better:
+
+```javascript
+view.listenTo(model, 'sync', handleSuccess);
+view.listenTo(model, 'error', handleError);
+model.fetch();
+```
 
 * It doesn't matter how or where a model will be fetched, the handleSuccess/handleError methods will be called.
 
@@ -88,19 +101,19 @@ This is much better:
 
 	- Views should avoid creating models / collections.  They should be passed in as options when the view is created.  The options used to pass in the collection / model shouldn't be the standard model / collection used by Backbone.  When the view is initialized it should set the this.model or this.collection based on the options parameters that are passed in.  See Example Below:
 
-	```code
-	var MyView = Backbone.View.extend({
-	    initialize: function(options) {
-	        if (!options || options.users)
-	            throw new Error('Missing users option');
-	        this.collection = options.users;
-		};
-	});
+  ```javascript
+  var MyView = Backbone.View.extend({
+      initialize: function(options) {
+          if (!options || options.users)
+              throw new Error('Missing users option');
+          this.collection = options.users;
+  	};
+  });
 
-	var users = new Backbone.Collection();
+  var users = new Backbone.Collection();
 
-	var view = new MyView({users: users});
-	```
+  var view = new MyView({users: users});
+  ```
 
 	- A views render method should be as simple as possible and able to be called multiple times without performance impact, memory leaks or adversely affecting the DOM.
 
