@@ -59,6 +59,23 @@ As JSON.parse will happen synchronously, we can surround it with a try-catch�
 Binding to a specific context in Node is not a win, because Node involves passing around lots of callbacks, and heavy use of higher-level functions to manage control flow. Using a [functional style](http://en.m.wikipedia.org/wiki/Functional_programming) will save you a lot of trouble. 
 Of course, there are some cases, when prototypes can be more efficient, but if possible, try to avoid them.
 
+### Use bind instead of me
+
+In this example me is used to maintian the scope in a variable
+
+```javascript
+var me = this; 
+parser.on('legBegin', function(data) {
+	me.usage[data.legId] = data; 
+});
+```
+Bind should be used instead
+
+```javascript
+parser.on('legBegin', function(data) {
+	this.usage[data.legId] = data;     }.bind(this));
+```
+
 ### Create small modules
 Do it the unix-way:
 > Developers should build a program out of simple parts connected by well defined interfaces, so problems are local, and parts of the program can be replaced in future versions to support new features.
