@@ -104,8 +104,9 @@ model.fetch();
   ```javascript
   var MyView = Backbone.View.extend({
       initialize: function(options) {
-          if (!options || options.users)
+          if (!options || options.users) {
               throw new Error('Missing users option');
+          }
           this.collection = options.users;
   	};
   });
@@ -131,7 +132,7 @@ model.fetch();
 
 	- Models & Collections should be rigorous about maintaining state locally and sync with the server only when necessary.  This would include things like adding and removing from a collection should happen locally without a round trip to the server.  This also would include pagination, searching and sorting to occur client side as much as possible.
 
-	- Collections should follow a singleton / factor model to help support maintaining state across the application.  See example below:
+	- Collections should follow a singleton / factor model to help support maintaining state across the application.
 
 ## <a href="architecture"></a>Architecture
 
