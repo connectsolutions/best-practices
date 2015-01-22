@@ -155,7 +155,7 @@ model.fetch();
 
 3. Module Router  
 
-  - Module routers should listen to router events and react to the events that are relevant to their area of concern in the application
+  - Module routers should listen to router events and react to the events that are relevant to their area of concern in the application.
 
   - It should create and maintain relative collections in memory.
 
