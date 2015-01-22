@@ -32,9 +32,9 @@ This is a living document and new ideas for improving the code around us are alw
 
 ####4. DOM Changes only when the model changes
 
-* Events are awesome - use them. The easiest approach is to render again after each change:
+* Events are awesome - use them. The easiest approach is to render again after each change.
 
-* A much better approach is to only change what’s needed:
+* A much better approach is to only change what’s needed.
 
 * The view is always synced with the model. It doesn’t matter how the model was changed: following an action, from a fetch or from a console debugging session - the view will always stay up to date.
 
@@ -44,11 +44,11 @@ This is a living document and new ideas for improving the code around us are alw
 
 * If you've used `on` for binding, it's your duty to use `off` for unbinding. Without unbinding, the garbage collector can't release the memory for you and your apps performance will degrade.
 
-* That's where `listenTo` comes in. It tracks what the view is bound to and unbinds it on a remove. Backbone does this by calling `stopListening` just before removing itself from the DOM:
+* That's where `listenTo` comes in. It tracks what the view is bound to and unbinds it on a remove. Backbone does this by calling `stopListening` just before removing itself from the DOM.
 
 ####6. Always be chainable
 
-* Always return `this` from the `render` and `remove` functions. This allows you to chain actions:
+* Always return `this` from the `render` and `remove` functions. This allows you to chain actions.
 
 * This is the convention, do not break it.
 
@@ -81,9 +81,9 @@ model.fetch();
 
 * The view has a reference to its own DOM element at 'el' and also a jQuery element '$el'.
 
-* This means you must never use jQuery directly:
+* This means you must never use jQuery directly.
 
-* Always scope yourself to your own DOM element instead:
+* Always scope yourself to your own DOM element instead.
 
 * If you need to alter a different view, just trigger an event and let the other view do its thing. You can also use Backbone as a global Pub/Sub system.
 
@@ -121,7 +121,7 @@ model.fetch();
 
 	Views should pass this into the template in the render to allow for the template to be able to call helper functions implemented in the view to simplify the templates.
 
-	- A view should always listen to it's model or collection for necessary changes and call render
+	- A view should always listen to it's model or collection for necessary changes and call render.
 
 	- Sub views should never call functionality on the parent or even assume where it should be appended in the DOM.  The parent should create a view and append in the DOM (where possible) and then rendered.  If the sub view needs to communicate a change to the parent it should do this via events.
 
@@ -157,6 +157,6 @@ model.fetch();
 
   - Module routers should listen to router events and react to the events that are relevant to their area of concern in the application
 
-  - It should create and maintain relative collections in memory
+  - It should create and maintain relative collections in memory.
 
   - It should create views as needed and pass in needed collections or new created modules as needed.
