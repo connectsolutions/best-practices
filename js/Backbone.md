@@ -161,3 +161,8 @@ model.fetch();
   - It should create and maintain relative collections in memory.
 
   - It should create views as needed and pass in needed collections or new created modules as needed.
+  
+4. Module Views
+
+  - Utilize the features of Backbone Composer (https://github.com/nnance/backbone-viewmanager) to simplify view rendering and life cycle management. Documentation can be found at https://github.com/nnance/backbone-composer/wiki/usage.
+  
