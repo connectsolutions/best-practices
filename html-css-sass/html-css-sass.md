@@ -290,7 +290,7 @@ padding: 0;
 .users-table {}
 ```
 * Use class names that are as short as possible but as long as necessary.
-* Aim for high reusability.  The more specific, the less reusable, so picking a name that is sensible, but leaves some "ambiguous
+* Aim for high reusability.  The more specific, the less reusable, so picking a name that is sensible, but leaves some "ambiguity wiggle room", is best.
 * Only use dashes to separate words.  
 * Class names provide an API for your stylesheets and any other consuming agents.  Instead of presentational or cryptic names, always use class names that reflect the purpose of the element in question, or that are otherwise generic.  A class name should meaningfully answer "_what is this?_" to any outside consumer of the HTML. 
 * Names that are specific and reflect the purpose of the element should be preferred as these are most understandable and the least likely to change.
