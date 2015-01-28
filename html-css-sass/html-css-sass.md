@@ -58,7 +58,6 @@
 [_table of contents_](#top)
 <a id="general"></a>
  
-----
 
 ----
 # GENERAL FORMATTING RULES (HTML, CSS & SASS)
@@ -98,7 +97,6 @@
 [_table of contents_](#top)
 <a id="html"></a>
 
-----
 
 ----
 # HTML CODING STYLE GUIDE
@@ -214,7 +212,6 @@
 [_table of contents_](#top)
 <a id="css"></a>
 
-----
 
 ----
 # CSS Coding Style Guide  
@@ -378,7 +375,6 @@ article .post-body code {}
 [_table of contents_](#top)
 <a id="sass"></a>
  
-----
 
 ----
 # SASS (SCSS) CODING STYLE GUIDE
@@ -469,7 +465,6 @@ article .post-body code {}
 [_table of contents_](#top)
 <a id="sources"></a>
  
-----
 
 ----
 
