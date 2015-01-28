@@ -1,0 +1,1 @@
+The 78x82 png module icon should be placed in this directory and be named app_mymodule.png

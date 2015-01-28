@@ -1,0 +1,25 @@
+{
+  "name": "mymodule",
+  "version": "0.0.1",
+  "homepage": "https://github.com/connectsolutions/best-practices",
+  "authors": [
+    "ConnectSolutions"
+  ],
+  "description": "Example backbone module",
+  "main": "js/router.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "backbone"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
