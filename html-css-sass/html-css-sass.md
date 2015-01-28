@@ -405,7 +405,7 @@ article .post-body code {}
 ```
 
 ### List "Regular" Styles Next
-* ```sass
+```sass
 .weather {
     @extends %module; 
     background: LightCyan;
