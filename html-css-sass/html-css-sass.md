@@ -314,7 +314,8 @@ padding: 0;
 
 <a id="bem"></a>
 ### What About BEM?
-* [BEM](https://bem.info/), a selector naming methodology has been used in the past, you may encounter it in existing CSS.  It produces selector rules such as
+* [BEM](https://bem.info/) is a selector naming methodology that has been used in the past: you may encounter it in existing CSS.
+* It produces selector rules such as
 ```css
 .row-list .row-list--empty .row-list__empty-notice--reports:before {}
 ```
