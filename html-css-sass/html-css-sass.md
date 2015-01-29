@@ -71,10 +71,10 @@
 
 <a id="capitalization"></a>
 ## Capitalization
-* All code should be lowercase. This applies to HTML element names, attributes, attribute values, CSS selectors, properties, and property values (as much as possible).
+* All code should be lowercase. This applies to HTML element names, attributes, attribute values, CSS selectors, CSS class names, properties, and property values (as much as possible).
 * Exceptions:
  * HTML property values may be mixed case, e.g. <i>&lt;div title="Welcome to Coso"></i>
- * The ID attribute of an HTML element may be lowerCamelCase, e.g. <i>&lt;div id="pageTitle"></i>
+ * The ID attribute of an HTML element should be lowerCamelCase, e.g. <i>&lt;div id="pageTitle"></i>, because this is used for JavaScript only, where camelCase is the rule.
 
 <a id="commenting"></a>
 ## Commenting
@@ -285,10 +285,12 @@ padding: 0;
 
 <a id="css-classes"></a>
 ### Class Naming
-* Class names are ideally two lowercase words separated by a dash.
+* Class names are ideally one or two lowercase words.
+* Words are separated by a dash.
 ```css
 .users-table {}
 ```
+* Use of three words is acceptable when it would be confusing to not do so.
 * Use class names that are as short as possible but as long as necessary.
 * Aim for high reusability.  The more specific, the less reusable, so picking a name that is sensible, but leaves some "ambiguity wiggle room", is best.
 * Only use dashes to separate words.
