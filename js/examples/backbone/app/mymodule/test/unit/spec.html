@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../../node_modules/mocha/mocha.css"/>
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="../../node_modules/mocha/mocha.js"></script>
+    <script>
+      mocha.ui("bdd");
+      mocha.reporter("html");
+    </script>
+
+    <script data-main="main_config" src="../../bower_components/requirejs/require.js"></script>
+  </body>
+</html>
