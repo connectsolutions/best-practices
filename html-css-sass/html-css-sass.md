@@ -1,7 +1,7 @@
  <a id="top"></a>
 # COSO HTML, CSS & SASS CODING STYLE GUIDE
 
-## Table of Contents 
+## Table of Contents
 * [Introduction](#introduction)
 * [HTML, CSS & SASS GENERAL FORMATTING RULES](#general)
  * [Indentation and Whitespace](#whitespace)
@@ -44,8 +44,8 @@
 
 
 ## Introduction
-* A coding styleguide is a valuable tool for teams to meet our manifesto of _"All Code Shall Appear to Be Written By a Single Person"_. 
-* A good styleguide, when well followed, will 
+* A coding styleguide is a valuable tool for teams to meet our manifesto of _"All Code Shall Appear to Be Written By a Single Person"_.
+* A good styleguide, when well followed, will
  * set the standard for code quality across a codebase;
  * promote consistency across codebases;
  * give developers a feeling of familiarity across codebases;
@@ -57,14 +57,14 @@
 <br><br>
 [_table of contents_](#top)
 <a id="general"></a>
- 
+
 
 ----
 # GENERAL FORMATTING RULES (HTML, CSS & SASS)
 
 <a id="whitespace"></a>
-## Indentation and Whitespace 
-* Indent by 2 spaces at a time. 
+## Indentation and Whitespace
+* Indent by 2 spaces at a time.
 * Don’t use tabs or mix tabs and spaces for indentation.
 * Use whitespace meaningfuly and consitently.
 * Remove trailing white spaces. They are unnecessary and can complicate diffs.
@@ -78,7 +78,7 @@
 
 <a id="commenting"></a>
 ## Commenting
-* Leaving comments for your coworkers (and yourself!) is encouraged. 
+* Leaving comments for your coworkers (and yourself!) is encouraged.
 * Where code does not explain itself sufficiently, use comments: What does it cover, what purpose does it serve, why is respective solution used or preferred?
 
 <a id="concerns"></a>
@@ -89,7 +89,7 @@
 
 <a id="practicality"></a>
 ### Guiding philsophy: practicality over purity
-* Strive to maintain HTML/CSS/SASS standards and semantics, but not at the expense of practicality. 
+* Strive to maintain HTML/CSS/SASS standards and semantics, but not at the expense of practicality.
 * Use the least amount of markup with the fewest intricacies whenever possible.
 * Removing code is just as much a contribution as adding code is.
 
@@ -149,7 +149,7 @@
 ```
 * Avoid embedded styles written into HTML. It's best to have all the static styles in our SCSS files structure. Embedding styles is most likely avoidable.
  * The exception to this is stateful styles dynamically created by application logic in the moment.  It is ok to append a &lt;style> element to the DOM if the &lt;style>&lt;/style> construction is managed by the view, and it can't reasonably be accomplished with pre-written static CSS.
- * For example, table columns whose width is calculated at render time by javascript: 
+ * For example, table columns whose width is calculated at render time by javascript:
 ```html
 /* ok if dynamicly created and added to the DOM by the view */
 <style>
@@ -169,7 +169,7 @@
 <a id="html-formatting"></a>
 ## General HTML Formatting
 * Use a new line for every block, list, or table element
-* Indent all children elements. 
+* Indent all children elements.
 * When it is more readable, an element may be opened and closed on the same line. &lt;th>, &lt;td>,  &  &lt;li> are good examples of elements that work well opened and closed on the same line.
 ```html
 <table>
@@ -189,7 +189,7 @@
           </ul>
         </td>
       </tr>
-    </tbody> 
+    </tbody>
 </table>
 ```
 
@@ -214,7 +214,7 @@
 
 
 ----
-# CSS Coding Style Guide  
+# CSS Coding Style Guide
 
 <a id="css-valid"></a>
 ## Use Valid CSS
@@ -223,19 +223,19 @@
 
 <a id="css-files"></a>
 ## CSS File Organization
-* See [SCSS file Organization](#sass)
+* See [SCSS file Organization](#scss-files)
 
 <a id="css-formatting"></a>
 ## Basic Text Formatting
 * Two (2) space indents, no tabs;
 * Meaningful use of whitespace.
 * Everything lowercase.
-* Use single ('') rather than double ("") quotation marks for attribute selectors or property values. 
+* Use single ('') rather than double ("") quotation marks for attribute selectors or property values.
 * Do not use quotation marks in URI values (url()).
 
 <a id="css-lines"></a>
 ### One Thing Per Line
-* Each item in a comma-separated list should be on its own line. Selectors, for example, should be on a single line, with a space only after the last selector, followed by an opening brace '{'. 
+* Each item in a comma-separated list should be on its own line. Selectors, for example, should be on a single line, with a space only after the last selector, followed by an opening brace '{'.
 * A selector block should end with a closing curly brace '}' that is unindented and on a separate line.
 ```css
 .top,
@@ -247,7 +247,7 @@
 }
 ```
 
-* A blank line should be placed between each selector block. 
+* A blank line should be placed between each selector block.
 
 <a id="css-properties"></a>
 ### Property-Value Pairs
@@ -276,23 +276,23 @@ padding: 0;
 <a id="css-ids"></a>
 ### Don't use IDs in CSS.
 * Use classes only.
-* In CSS, there is literally no point in them, and they only ever cause harm.  See http://cssguidelin.es/#ids-in-css  
+* In CSS, there is literally no point in them, and they only ever cause harm.  See http://cssguidelin.es/#ids-in-css
 > Not only are IDs inherently non-reusable, they are also vastly more specific than any other selector, and therefore become specificity anomalies. One thousand chained classes cannot override the specificity of a single ID.  If we want to keep specificity low, which we do, we have one really quick-win, simple, easy-to-follow rule that we can employ to help us: avoid using IDs in CSS.
 
 * ###### (It's Ok to Use IDs in HTML and Javascript)
- * It is still perfectly okay to use IDs in HTML and JavaScript; it is only in CSS that they prove troublesome.  
+ * It is still perfectly okay to use IDs in HTML and JavaScript; it is only in CSS that they prove troublesome.
  * When used, IDs should be _lowerCamelCase_
 
 <a id="css-classes"></a>
 ### Class Naming
-* Class names are ideally two lowercase words separated by a dash.  
+* Class names are ideally two lowercase words separated by a dash.
 ```css
 .users-table {}
 ```
 * Use class names that are as short as possible but as long as necessary.
 * Aim for high reusability.  The more specific, the less reusable, so picking a name that is sensible, but leaves some "ambiguity wiggle room", is best.
-* Only use dashes to separate words.  
-* Class names provide an API for your stylesheets and any other consuming agents.  Instead of presentational or cryptic names, always use class names that reflect the purpose of the element in question, or that are otherwise generic.  A class name should meaningfully answer "_what is this?_" to any outside consumer of the HTML. 
+* Only use dashes to separate words.
+* Class names provide an API for your stylesheets and any other consuming agents.  Instead of presentational or cryptic names, always use class names that reflect the purpose of the element in question, or that are otherwise generic.  A class name should meaningfully answer "_what is this?_" to any outside consumer of the HTML.
 * Names that are specific and reflect the purpose of the element should be preferred as these are most understandable and the least likely to change.
 ```css
 /* Not recommended: meaningless */
@@ -304,8 +304,8 @@ padding: 0;
 .body-container {}
 .status-label {}
 .user-thumbnail {}
-.video {} 
-/* Recommended: state enhancing classes, 
+.video {}
+/* Recommended: state enhancing classes,
 these work very well with SASS nesting */
 .active {} /* example: .dropdown-item.active */
 .error {} /* example: .status-label.error {} */
@@ -316,12 +316,12 @@ these work very well with SASS nesting */
 ### Keep Specificity Low
 * From Chris Coyier of <a href="http://codepen.io/chriscoyier/" target="_blank">codepen.io</a> and <a href="http://css-tricks.com/sass-style-guide/" target+"_blank">CSS-Tricks</a>:
 > The overall philosophy is keep specificity low. There will always be times you need to override it, no matter how cool-dude-reusable you're being, so the lower the specificity is on a selector, the easier it is to override.
- 
+
 ```css
-/* bad */  
+/* bad */
 body > article > div.grid-2-3 > section.post-body > pre:nth-child(38) > code {}
-/* not bad */  
-article .post-body code {} 
+/* not bad */
+article .post-body code {}
 ```
 
 <a id="css-commenting"></a>
@@ -374,7 +374,7 @@ article .post-body code {}
 <br><br>
 [_table of contents_](#top)
 <a id="sass"></a>
- 
+
 
 ----
 # SASS (SCSS) CODING STYLE GUIDE
@@ -399,7 +399,7 @@ article .post-body code {}
 * Knowing right off the bat that this class inherits another whole set of rules from elsewhere is good.
 ```sass
 .weather {
-    @extends %module; 
+    @extends %module;
     ...
 }
 ```
@@ -407,7 +407,7 @@ article .post-body code {}
 ### List "Regular" Styles Next
 ```sass
 .weather {
-    @extends %module; 
+    @extends %module;
     background: LightCyan;
     ..
 }
@@ -417,7 +417,7 @@ article .post-body code {}
 * This visually separates the @extends and @includes as well as groups the @includes for easier reading. You might also want to make the call on separating user-authored @includes and vendor-provided @includes.
 ```sass
 .weather {
-    @extends %module; 
+    @extends %module;
     background: LightCyan;
     @include transition(all 0.3s ease-out);
     ...
@@ -428,7 +428,7 @@ article .post-body code {}
 * Nothing goes after the nested stuff. And the same order as above within the nested selector would apply.
 ```sass
 .weather {
-    @extends %module; 
+    @extends %module;
     background: LightCyan;
     @include transition(all 0.3s ease);
     > h3 {
@@ -464,7 +464,7 @@ article .post-body code {}
 <br><br>
 [_table of contents_](#top)
 <a id="sources"></a>
- 
+
 
 ----
 
