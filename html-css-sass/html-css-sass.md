@@ -24,7 +24,7 @@
 * [CSS CODING STYLE GUIDE](#css)
  * [Use Valid CSS](#css-valid)
  * [CSS File Organization](#css-files)
- * [Basic Text Formatting](#css-formatting)
+ * [CSS Text Formatting](#css-formatting)
  * [One Thing Per Line](#css-lines)
  * [Property-Value Pairs](#css-properties)
  * [Don't use IDs in CSS.](#css-ids)
@@ -74,9 +74,11 @@
 <a id="capitalization"></a>
 ## Capitalization
 * All code should be lowercase. This applies to HTML element names, attributes, attribute values, CSS selectors, CSS class names, properties, and property values (as much as possible).
+* CSS classes are lowercase separated by a dash.  See [Class Naming](#css-classes).
+* SASS variables are lowercase separated by a dash. See [SASS Naming](#scss-naming).
 * Exceptions:
  * HTML property values may be mixed case, e.g. <i>&lt;div title="Welcome to Coso"></i>
- * The ID attribute of an HTML element should be lowerCamelCase, e.g. <i>&lt;div id="pageTitle"></i>, because this is used for JavaScript only, where camelCase is the rule.
+ * The ID attribute of an HTML element should be lowerCamelCase, e.g. <i>&lt;div id="pageTitle"></i>, because this is used for JavaScript only.
 
 <a id="commenting"></a>
 ## Commenting
