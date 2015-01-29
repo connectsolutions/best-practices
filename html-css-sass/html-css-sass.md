@@ -29,14 +29,16 @@
  * [Property-Value Pairs](#css-properties)
  * [Don't use IDs in CSS.](#css-ids)
  * [Class Naming](#css-classes)
+ * [About BEM](#bem)
  * [Keep Specificity Low](#css-specificity)
  * [CSS Commenting](#css-commenting)
  * [Media query placement](#css-media-queries)
 
 * [SASS CODING STYLE GUIDE](#sass)
  * [Use Valid SCSS](#scss-valid)
- * [SCSS File Organization](#scss-files)
+ * [.scss File Organization](#scss-files)
  * [SASS Code Organization](#scss-code)
+ * [SASS Naming Conventions](#scss-naming)
  * [SASS Nesting](#scss-nesting)
  * [Working with Colors](#scss-colors)
 
@@ -272,7 +274,9 @@ margin: 0;
 padding: 0;
 ```
 
-## CSS Specifiers
+<a id="css-specifiers"></a>
+## CSS Specifiers & Naming Conventions
+
 <a id="css-ids"></a>
 ### Don't use IDs in CSS.
 * Use classes only.
@@ -307,12 +311,31 @@ padding: 0;
 .status-label {}
 .user-thumbnail {}
 .video {}
-/* Recommended: state enhancing classes,
-these work very well with SASS nesting */
+/* Recommended: state enhancing classes, these work very well with SASS nesting */
 .active {} /* example: .dropdown-item.active */
 .error {} /* example: .status-label.error {} */
 .inactive {}
 ```
+* For multi-word class names, arrange words that describe their function from generic to specific (much the same way CSS works with specificity) from left-to-right.
+```CSS
+/* not great */
+.default-button {}
+.cancel-button {}
+/* vastly better */
+.button-default {}
+.button-cancel {}
+```
+
+<a id="bem"></a>
+### What About BEM?
+* [BEM](https://bem.info/), a selector naming methodology has been used in the past, you may encounter it in existing CSS.  It produces selector rules such as
+```css
+.row-list .row-list--empty .row-list__empty-notice--reports:before {}
+```
+* This system works well for highly complex HTML/CSS clockwork
+* BEM appears overwrought for the template-based, featherlight HTML we prefer
+ * So we are moving away from it.
+
 
 <a id="css-specificity"></a>
 ### Keep Specificity Low
@@ -381,22 +404,40 @@ article .post-body code {}
 ----
 # SASS (SCSS) CODING STYLE GUIDE
 
+* [SASS](http://sass-lang.com/) = Semantically Awesome Stylesheets
+* [SCSS](http://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html) = "Sassy CSS" = the flavor of SASS we use.
+
 <a id="scss-valid"></a>
 ## Use Valid SCSS:
 * the Compass SASS Framework provides CSS validation when run.  Valid CSS is valid SCSS.
 * Use an SCSS linter to reveal and prevent issues such as:
  * You have a class in your CSS but not anywhere in your app/views/ templates.
  * You are using the same selector multiple times (as they should almost always be combined).
- * The general formatting rules (nesting limits, line breaks between rulesets, lack of space after :s, etc) are broken.
+ * The general formatting rules (nesting limits, line breaks between rulesets, lack of space after ':'s, etc) are broken.
 
 <a id="scss-files"></a>
-## SCSS File Organization
+## .scss File Organization
 * Styles that apply to the entire application should go into one or more Core SCSS files that get loaded at the start of the application
 * Styles that apply to specific modules should be separated out into their own SCSS file for that module.
 • All files should be concatenated and minified into a single file by a process like Compass.
 
 <a id="scss-code"></a>
-## SASS Code Organization
+## SASS Code Conventions
+
+<a id="scss-naming"></a>
+### SASS/SCSS Naming Conventions
+* CSS is a subset of SCSS so be sure to follow all the [CSS Naming Conventions](#css-specifiers).
+* For SASS variable and mixin names, use lowercase and dash-seprarators, as we do for CSS.
+* For multi-word variable names, arrange words that describe their function from generic to specific (much the same way CSS works with specificity) from left-to-right.
+```SCSS
+/* not great */
+$light-blue
+$dark-blue
+/* vastly better */
+$blue-light
+$blue-dark
+```
+
 ### List @extend(s) First
 * Knowing right off the bat that this class inherits another whole set of rules from elsewhere is good.
 ```sass
