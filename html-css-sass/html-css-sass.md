@@ -144,29 +144,15 @@
 
 <a id="no-inline-css"></a>
 ## Use External Stylesheets
-* Do not write inline styles. The specificity is too high. Inlining styles is most likely avoidable.
+* Do not write inline styles into HTML. The specificity is too high. Inlining styles is most likely avoidable.
 ```html
 <!-- avoid this --> <div style="display:none">
 <!-- DO do this --> <div class="start-hidden">
 ```
 * Avoid embedded styles written into HTML. It's best to have all the static styles in our SCSS files structure. Embedding styles is most likely avoidable.
- * The exception to this is stateful styles dynamically created by application logic in the moment.  It is ok to append a &lt;style> element to the DOM if the &lt;style>&lt;/style> construction is managed by the view, and it can't reasonably be accomplished with pre-written static CSS.
- * For example, table columns whose width is calculated at render time by javascript:
-```html
-/* ok if dynamicly created and added to the DOM by the view */
-<style>
-      table td:first-child {
-        width:40%;
-      }
-      table td:nth-child(2) {
-        width:50%;
-      }
-      table td:last-child {
-        width:10%;
-      }
-}
-</style>
-```
+* It is ok to use JavaScript to manage inline styles on an element directly, however ONLY when it is impossible to have a prewritten CSS class to do the job. This should be considered a technique of last recourse.
+ * For example modifying an element's height relative to the viewport height.
+
 
 <a id="html-formatting"></a>
 ## General HTML Formatting
