@@ -148,8 +148,10 @@
 ## Use External Stylesheets
 * Do not write inline styles into HTML. The specificity is too high. Inlining styles is most likely avoidable.
 ```html
-<!-- avoid this --> <div style="display:none">
-<!-- DO do this --> <div class="start-hidden">
+<!-- avoid this -->
+<div style="display:none">
+<!-- DO do this -->
+<div class="start-hidden">
 ```
 * Avoid embedded styles written into HTML. It's best to have all the static styles in our SCSS files structure. Embedding styles is most likely avoidable.
 * It is ok to use JavaScript to manage inline styles on an element directly, however ONLY when it is impossible to have a prewritten CSS class to do the job. This should be considered a technique of last recourse.
@@ -163,23 +165,23 @@
 * When it is more readable, an element may be opened and closed on the same line. &lt;th>, &lt;td>,  &  &lt;li> are good examples of elements that work well opened and closed on the same line.
 ```html
 <table>
-    <thead>
-      <tr>
-        <th scope="col">Income</th>
-        <th scope="col">Taxes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>$ 5.00</td>
-        <td>
-          <ul>
-            <li>Item one</li>
-            <li>Item Two</li>
-          </ul>
-        </td>
-      </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th scope="col">Income</th>
+      <th scope="col">Taxes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$ 5.00</td>
+      <td>
+        <ul>
+          <li>Item one</li>
+          <li>Item Two</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
 ```
 
@@ -194,7 +196,11 @@
 ## Closing Tags
 * Don't include a trailing slash in self-closing elements—the HTML5 spec says they're optional.  E.g. don't do this:
 ```html
-</br> <!-- don't do this -->
+<!-- don't do these -->
+<br/>
+<br />
+<!-- DO do this -->
+<br>
 ```
 * Don’t omit optional closing tags (e.g. &lt;/li> or &lt;/body>).
 
@@ -231,9 +237,9 @@
 .top,
 .middle,
 .bottom {
-    margin-right: 10px;
-    background-color: #efefef;
-    border: 1px solid #eee;
+  margin-right: 10px;
+  background-color: #efefef;
+  border: 1px solid #eee;
 }
 ```
 
@@ -242,15 +248,15 @@
 <a id="css-properties"></a>
 ### Property-Value Pairs
 * Property-value pairs should be listed starting on the line after the opening curly brace. Each pair should:
-  * be on its own line;
+ * be on its own line;
  * be indented one level (2 spaces);
  * have a single space after the colon that separates the property name from the property value; and
  * end in a semicolon (even the last one in a list).
 ```css
 selector {
-      name: value;
-      name: value;
-      name: value;
+  name: value;
+  name: value;
+  name: value;
 }
 ```
 
@@ -408,7 +414,7 @@ article .post-body code {}
 ## .scss File Organization
 * Styles that apply to the entire application should go into one or more Core SCSS files that get loaded at the start of the application
 * Styles that apply to specific modules should be separated out into their own SCSS file for that module.
-• All files should be concatenated and minified into a single file by a process like Compass.
+* All files should be concatenated and minified into a single file by a process like Compass.
 
 <a id="scss-code"></a>
 ## SASS Code Conventions
@@ -431,17 +437,17 @@ $blue-dark
 * Knowing right off the bat that this class inherits another whole set of rules from elsewhere is good.
 ```sass
 .weather {
-    @extends %module;
-    ...
+  @extends %module;
+  ...
 }
 ```
 
 ### List "Regular" Styles Next
 ```sass
 .weather {
-    @extends %module;
-    background: LightCyan;
-    ..
+  @extends %module;
+  background: LightCyan;
+  ...
 }
 ```
 
@@ -449,10 +455,10 @@ $blue-dark
 * This visually separates the @extends and @includes as well as groups the @includes for easier reading. You might also want to make the call on separating user-authored @includes and vendor-provided @includes.
 ```sass
 .weather {
-    @extends %module;
-    background: LightCyan;
-    @include transition(all 0.3s ease-out);
-    ...
+  @extends %module;
+  background: LightCyan;
+  @include transition(all 0.3s ease-out);
+  ...
 }
 ```
 
@@ -460,13 +466,13 @@ $blue-dark
 * Nothing goes after the nested stuff. And the same order as above within the nested selector would apply.
 ```sass
 .weather {
-    @extends %module;
-    background: LightCyan;
-    @include transition(all 0.3s ease);
-    > h3 {
-      border-bottom: 1px solid white;
-      @include transform(rotate(90deg));
-    }
+  @extends %module;
+  background: LightCyan;
+  @include transition(all 0.3s ease);
+  > h3 {
+    border-bottom: 1px solid white;
+    @include transform(rotate(90deg));
+  }
 }
 ```
 
@@ -475,11 +481,11 @@ $blue-dark
 * Nesting shouldn't go very deep.  A good rule is if you are nesting more than three levels, ask yourself if there is another way you could structure your code.
 ```SASS
 .weather {
-    .cities {
-      li {
-        // no more!
-      }
+  .cities {
+    li {
+      // no more!
     }
+  }
 }
 ```
 
@@ -490,7 +496,7 @@ $blue-dark
 ### Colors
 * Variablize All Colors
  * Consider using <a href="http://chir.ag/projects/name-that-color" target="_blank">Name That Color</a> as a naming scheme for colors.  See <a href="http://davidwalsh.name/sass-color-variables-dont-suck" target="_blank">_Sass Color Variables That Don't Suck_</a>
-   * <a href="http://theolabrothers.com/sip/" target="_blank">SIP</a> is a great Mac OS tool for working with color
+  * <a href="http://theolabrothers.com/sip/" target="_blank">SIP</a> is a great Mac OS tool for working with color
 * Keep them in a separate _colors.scss_ file
 
 <br><br>
