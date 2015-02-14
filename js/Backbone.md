@@ -87,6 +87,10 @@ model.fetch();
 
 * If you need to alter a different view, just trigger an event and let the other view do its thing. You can also use Backbone as a global Pub/Sub system.
 
+####9. Keep HTML out of JS
+
+Always lean towards making a view/template.  Single-tag elements, such as those comprising a dropdown list - are ok to generate in js.  Anything more complex - make a view.  Views should be created for DOM elements that are dynamic in anyway.  For example, event handlers or event based rendering is needed.
+
 ## <a name="philosophy"></a>The CoSo Philosophy
 
 1. Overview
@@ -161,8 +165,7 @@ model.fetch();
   - It should create and maintain relative collections in memory.
 
   - It should create views as needed and pass in needed collections or new created modules as needed.
-  
+
 4. Module Views
 
   - Utilize the features of Backbone Composer (https://github.com/nnance/backbone-viewmanager) to simplify view rendering and life cycle management. Documentation can be found at https://github.com/nnance/backbone-composer/wiki/usage.
-  
